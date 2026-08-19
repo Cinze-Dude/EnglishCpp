@@ -22,12 +22,6 @@ struct Verb {
     Aspect aspect;
 };
 
-struct VerbPhrase {
-    std::vector<std::string> adverbs;
-    Verb verb;
-    std::optional<NounPhrase> object;
-};
-
 enum class Article {
     Indef,
     VowelIndef,
@@ -43,6 +37,12 @@ struct NounPhrase {
     std::optional<Article> article;
     std::vector<std::string> adjectives;
     Noun noun;
+};
+
+struct VerbPhrase {
+    std::vector<std::string> adverbs;
+    Verb verb;
+    std::optional<NounPhrase> object;
 };
 
 struct Clause {
@@ -64,5 +64,27 @@ struct Sentence {
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    Sentence sentence
+    {
+        SentenceKind::Declarative,
+        Clause
+        {
+            NounPhrase
+            {
+                Article::Def,
+                {"big"},
+                Noun {"dog", false}
+            },
+            VerbPhrase
+            {
+                {"quickly"},
+                Verb{"eat", Time::Past, Aspect::Simple},
+                NounPhrase{
+                    Article::Def,
+                    {"small"},
+                    Noun{"cat", false}
+                }
+            }
+        }
+    };
 }
