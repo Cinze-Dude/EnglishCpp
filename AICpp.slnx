@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="AICpp.vcxproj" Id="85e85c5e-8dd2-4d60-ba9e-467b27ed2c70" />
+</Solution>
